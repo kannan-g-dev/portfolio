@@ -121,7 +121,7 @@ export const portfolioConfig: PortfolioConfig = {
     title: 'Software Engineer | Java Backend Developer',
     experienceSummary: '4+ years of software development experience',
     currentCompany: 'Profit.co',
-    location: 'Chennai, India',
+    location: 'Sivakasi, Tamil Nadu, India',
     heroHeading: "Hi, I'm Kannan Ganesan.",
     heroHeadline: 'Building reliable backend systems with Java and modern software engineering.',
     heroIntroduction:
@@ -242,7 +242,7 @@ export const portfolioConfig: PortfolioConfig = {
     {
       company: 'Profit.co',
       role: 'Software Engineer',
-      location: 'Chennai, India',
+      location: 'Sivakasi, Tamil Nadu, India',
       period: 'Jul 2022 – Present',
       current: true,
       overview:
@@ -485,7 +485,7 @@ export const portfolioConfig: PortfolioConfig = {
     phone: '9943435005',
     githubUrl: 'https://github.com/kannan-g-dev',
     linkedinUrl: 'https://www.linkedin.com/in/kannan-ganesan-570413172/',
-    location: 'Chennai, India',
+    location: 'Sivakasi, Tamil Nadu, India',
     responseExpectation: 'I typically respond to engineering inquiries within 24 hours.',
     formService: {
       configured: false,
