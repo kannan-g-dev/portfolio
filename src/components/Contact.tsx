@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SectionHeading } from './SectionHeading';
 import { portfolioConfig, isValidUrl } from '../config/portfolio';
-import { Mail, Github, Linkedin, MapPin, Send, Check, Copy, AlertCircle, Clock } from 'lucide-react';
+import { Mail, Github, Linkedin, MapPin, Send, Check, Copy, AlertCircle, Clock, Phone } from 'lucide-react';
 
 interface FormState {
   name: string;
@@ -176,6 +176,29 @@ export const Contact: React.FC = () => {
                 </p>
               </div>
             </div>
+
+            {/* Phone Card */}
+            {contact.phone && (
+              <div className="card-surface p-5 flex items-start gap-3.5">
+                <div className="p-2.5 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/15 text-emerald-500 shrink-0">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-mono uppercase tracking-wider text-light-subtle dark:text-dark-subtle">
+                    Phone
+                  </p>
+                  <a
+                    href={`tel:${contact.phone}`}
+                    className="text-sm font-semibold text-light-text dark:text-dark-text hover:text-brand-blue transition-colors"
+                  >
+                    +91 {contact.phone}
+                  </a>
+                  <p className="text-[11px] text-light-muted dark:text-dark-muted mt-0.5">
+                    Direct call or WhatsApp
+                  </p>
+                </div>
+              </div>
+            )}
 
             {/* GitHub Card */}
             <div className="card-surface p-5 flex items-start gap-3.5">

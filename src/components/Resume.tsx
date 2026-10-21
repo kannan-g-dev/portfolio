@@ -53,7 +53,7 @@ export const Resume: React.FC = () => {
                 Kannan Ganesan — Software Engineer Resume
               </h3>
               <p className="mt-1 text-sm text-light-muted dark:text-dark-muted">
-                Highlights 3+ years of backend engineering experience, Java/Spring Boot development, Elasticsearch querying, and production operations at Profit.co.
+                Highlights 4+ years of backend engineering experience, Java 17/Spring Boot microservices, Elasticsearch tuning, and Angular full-stack work at Profit.co.
               </p>
             </div>
           </div>

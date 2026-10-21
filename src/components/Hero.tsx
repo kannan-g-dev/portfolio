@@ -126,14 +126,30 @@ export const Hero: React.FC = () => {
 
               {/* Architecture Blueprint Visual */}
               <div className="space-y-2.5 font-mono text-xs">
+                {/* Layer 0: Frontend Layer */}
+                <div className="p-2.5 rounded-md bg-slate-50 dark:bg-dark-surface/50 border border-light-border dark:border-white/5 flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                    <span className="w-2 h-2 rounded-full bg-rose-500 inline-block" />
+                    <span>Frontend Client Layer</span>
+                  </div>
+                  <span className="text-[10px] text-rose-500 font-semibold px-1.5 py-0.5 rounded bg-rose-500/10">
+                    Angular · TypeScript
+                  </span>
+                </div>
+
+                {/* Flow indicator */}
+                <div className="flex justify-center -my-1 text-light-subtle dark:text-dark-subtle text-[10px]">
+                  <span>↓ REST API requests</span>
+                </div>
+
                 {/* Layer 1: API Layer */}
                 <div className="p-2.5 rounded-md bg-slate-50 dark:bg-dark-surface/50 border border-light-border dark:border-white/5 flex items-center justify-between">
                   <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
                     <Server className="w-3.5 h-3.5 text-brand-blue" />
-                    <span>REST API & Validation</span>
+                    <span>REST Services & Pub/Sub</span>
                   </div>
                   <span className="text-[10px] text-brand-blue font-semibold px-1.5 py-0.5 rounded bg-brand-blue/10">
-                    Spring Boot
+                    Java 17 · Spring Boot
                   </span>
                 </div>
 
@@ -147,7 +163,7 @@ export const Hero: React.FC = () => {
                   <div className="p-2.5 rounded-md bg-slate-50 dark:bg-dark-surface/50 border border-light-border dark:border-white/5">
                     <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 text-[11px] font-semibold mb-1">
                       <Database className="w-3 h-3 text-emerald-400" />
-                      <span>SQL Storage</span>
+                      <span>PostgreSQL/SQL</span>
                     </div>
                     <p className="text-[10px] text-light-subtle dark:text-dark-subtle">
                       ACID transactions
@@ -160,7 +176,7 @@ export const Hero: React.FC = () => {
                       <span>Elasticsearch</span>
                     </div>
                     <p className="text-[10px] text-light-subtle dark:text-dark-subtle">
-                      Indexed hierarchies
+                      -25% search latency
                     </p>
                   </div>
                 </div>

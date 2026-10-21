@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Github, Mail } from 'lucide-react';
+import { ArrowUp, Github, Mail, Linkedin } from 'lucide-react';
 import { portfolioConfig } from '../config/portfolio';
 
 export const Footer: React.FC = () => {
@@ -48,6 +48,20 @@ export const Footer: React.FC = () => {
               <Github className="w-3.5 h-3.5" />
               <span>GitHub</span>
             </a>
+            {contact.linkedinUrl && (
+              <>
+                <span aria-hidden="true">·</span>
+                <a
+                  href={contact.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 hover:text-brand-blue transition-colors"
+                >
+                  <Linkedin className="w-3.5 h-3.5" />
+                  <span>LinkedIn</span>
+                </a>
+              </>
+            )}
           </div>
 
           {/* Back to Top */}

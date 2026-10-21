@@ -1,8 +1,7 @@
 /**
  * Portfolio Configuration - Single Source of Truth
  * 
- * Update this file to customize profile details, experience, skills,
- * case studies, and contact information. All text is typed and verified.
+ * Verified against official resume of Kannan Ganesan.
  */
 
 export interface NavItem {
@@ -12,7 +11,7 @@ export interface NavItem {
 
 export interface SkillItem {
   name: string;
-  tag?: 'Core' | 'Practiced' | 'Learning' | 'Daily Tool';
+  tag?: 'Core' | 'Practiced' | 'Tool' | 'Architecture';
 }
 
 export interface SkillCategory {
@@ -25,7 +24,7 @@ export interface ExperienceEntry {
   company: string;
   role: string;
   location: string;
-  period: string; // Editable start and end dates
+  period: string;
   current: boolean;
   overview: string;
   responsibilities: {
@@ -45,8 +44,8 @@ export interface ProjectCaseStudy {
   engineeringThemes: string[];
   outcome?: string;
   technologies: string[];
-  githubUrl?: string; // Optional - hidden if empty
-  demoUrl?: string;   // Optional - hidden if empty
+  githubUrl?: string;
+  demoUrl?: string;
   featured: boolean;
   visibility: 'public' | 'unlisted';
 }
@@ -72,7 +71,6 @@ export interface PortfolioConfig {
     primaryCta: { text: string; href: string };
     secondaryCta: { text: string; href: string };
     keyTechBadges: string[];
-    // Career interest indicator: disabled by default as required by specification
     careerInterest: {
       enabled: boolean;
       statusText: string;
@@ -90,18 +88,18 @@ export interface PortfolioConfig {
   caseStudies: ProjectCaseStudy[];
   engineeringApproach: EngineeringPrinciple[];
   resume: {
-    enabled: boolean; // Set to true once public/resume.pdf is placed
+    enabled: boolean;
     filePath: string;
     fileName: string;
     note: string;
   };
   contact: {
     email: string;
+    phone: string;
     githubUrl: string;
-    linkedinUrl: string; // If empty or placeholder, UI handles gracefully
+    linkedinUrl: string;
     location: string;
     responseExpectation: string;
-    // Optional contact form endpoint configuration (e.g. Formspree / backend API)
     formService: {
       configured: boolean;
       endpointUrl?: string;
@@ -112,7 +110,7 @@ export interface PortfolioConfig {
     description: string;
     ogTitle: string;
     ogDescription: string;
-    siteUrl?: string; // Provide once deployed to custom domain or GitHub Pages
+    siteUrl?: string;
   };
 }
 
@@ -121,13 +119,13 @@ export const portfolioConfig: PortfolioConfig = {
     name: 'Kannan Ganesan',
     monogram: 'KG',
     title: 'Software Engineer | Java Backend Developer',
-    experienceSummary: '3+ years of software development experience',
+    experienceSummary: '4+ years of software development experience',
     currentCompany: 'Profit.co',
     location: 'Chennai, India',
     heroHeading: "Hi, I'm Kannan Ganesan.",
     heroHeadline: 'Building reliable backend systems with Java and modern software engineering.',
     heroIntroduction:
-      "I'm a Software Engineer focused on backend development, REST APIs, data-driven applications, and performance optimization. I enjoy solving complex engineering problems and building reliable software.",
+      "I'm a Software Engineer with 4+ years of experience designing and delivering production-grade Java 17 / Spring Boot services and full-stack solutions with Angular. I specialize in REST APIs, Elasticsearch optimization, event-driven data synchronization, and high-reliability backend architecture.",
     primaryCta: {
       text: 'Explore My Work',
       href: '#projects',
@@ -136,94 +134,106 @@ export const portfolioConfig: PortfolioConfig = {
       text: 'Get In Touch',
       href: '#contact',
     },
-    keyTechBadges: ['Java', 'Spring Boot', 'REST APIs', 'Elasticsearch'],
+    keyTechBadges: ['Java 17', 'Spring Boot', 'Elasticsearch', 'REST APIs', 'Angular', 'Pub/Sub'],
     careerInterest: {
-      enabled: false, // Default is disabled/hidden per guidelines
-      statusText: 'Open to discussions on backend engineering',
+      enabled: false,
+      statusText: 'Open to senior backend and full-stack engineering roles',
     },
   },
 
   about: {
     paragraphs: [
-      'I am a Software Engineer with 3+ years of experience specializing in backend application development. In my day-to-day engineering at Profit.co, I work on an enterprise OKR (Objectives and Key Results) management platform serving organizational alignment, goal tracking, and business metrics.',
-      'My core work centers on designing and maintaining resilient REST API workflows, investigating complex data behavior across relational databases and Elasticsearch, and conducting rigorous production troubleshooting. I focus heavily on parent-child alignment propagation, check-in data synchronization, and data consistency across application components.',
-      'Beyond shipping features, I spend significant time investigating API latency bottlenecks, performing root-cause analysis on production incidents, and writing clear, reproducible fixes. I am continuously deepening my mastery of Spring Boot architecture and microservices patterns through deliberate engineering practice.',
+      'I am a Software Engineer with 4+ years of experience designing and delivering production-grade Java 17 and Spring Boot microservices for an enterprise SaaS platform serving global customers at Profit.co.',
+      'I take end-to-end ownership of backend modules — from architectural decisions and schema design to Elasticsearch tuning, API performance optimization, and L3 incident triage. In production, I led query restructuring and indexing that cut API latency by ~63% and reduced Elasticsearch search query times by ~25% across 500–1000 organizations.',
+      'My technical work spans building complex OKR alignment hierarchies, YTD/QTD calculation engines, Bowler chart reporting backends, and Pub/Sub event-driven notification pipelines serving 5,000+ users. Additionally, I collaborate seamlessly with frontend teams with practical hands-on proficiency in Angular and TypeScript, and built an internal JVM heap profiler (MAT) to identify and eliminate memory leaks proactively.',
     ],
     engineeringFocus: [
       {
-        title: 'Backend Architecture & APIs',
-        description: 'Robust RESTful endpoints, clean service boundaries, and request validation.',
+        title: 'Backend Architecture & Microservices',
+        description: 'Java 17, Spring Boot, Spring MVC, REST APIs, and Hibernate/JPA schema design.',
       },
       {
-        title: 'Elasticsearch & Query Analysis',
-        description: 'Complex filtering, index synchronization, and efficient search retrieval.',
+        title: 'Elasticsearch Tuning & Analytics',
+        description: 'Targeted indexing, query restructuring, and 25% query latency reduction.',
       },
       {
-        title: 'Data Consistency & Integrity',
-        description: 'Hierarchical alignment models, check-in propagation, and cross-store synchronization.',
+        title: 'Event-Driven Systems & Data Sync',
+        description: 'Pub/Sub async dispatch, scheduled calculation jobs, and reliable state propagation.',
       },
       {
-        title: 'Production Root-Cause Analysis',
-        description: 'Systematic debugging, reproduction, and non-regressive production hotfixes.',
+        title: 'L3 Production Triage & Profiling',
+        description: 'Root cause analysis (RCA), ITIL workflows, and JVM heap memory analysis (MAT).',
       },
     ],
   },
 
   skillCategories: {
-    programming: {
-      title: 'Programming',
-      description: 'Core languages used for backend logic and querying.',
+    languagesAndFrameworks: {
+      title: 'Languages & Frameworks',
+      description: 'Core languages and robust enterprise service frameworks.',
       skills: [
-        { name: 'Java', tag: 'Core' },
-        { name: 'SQL', tag: 'Core' },
-      ],
-    },
-    backend: {
-      title: 'Backend Development',
-      description: 'Frameworks, service design, and API architectures.',
-      skills: [
+        { name: 'Java 8 / 17', tag: 'Core' },
         { name: 'Spring Boot', tag: 'Core' },
-        { name: 'REST APIs', tag: 'Core' },
-        { name: 'Microservices', tag: 'Practiced' },
-        { name: 'Backend application architecture', tag: 'Core' },
+        { name: 'Spring Framework / MVC', tag: 'Core' },
+        { name: 'Microservices', tag: 'Core' },
+        { name: 'REST APIs / Web Services', tag: 'Core' },
+        { name: 'Hibernate / JPA', tag: 'Core' },
       ],
     },
-    dataAndSearch: {
-      title: 'Databases & Search',
-      description: 'Persistent storage, search indexing, and consistency validation.',
+    backendAndData: {
+      title: 'Backend & Data Architecture',
+      description: 'Persistent storage, search indexing, event-driven pipelines, and scheduled jobs.',
       skills: [
         { name: 'Elasticsearch', tag: 'Core' },
-        { name: 'Relational databases', tag: 'Core' },
-      ],
-    },
-    tools: {
-      title: 'Tools & Workflow',
-      description: 'Daily developer environment and version control.',
-      skills: [
-        { name: 'Git', tag: 'Daily Tool' },
-        { name: 'Maven', tag: 'Daily Tool' },
-        { name: 'IntelliJ IDEA', tag: 'Daily Tool' },
-        { name: 'Cursor', tag: 'Daily Tool' },
+        { name: 'SQL (PostgreSQL / MySQL)', tag: 'Core' },
+        { name: 'Pub/Sub & Event-Driven', tag: 'Core' },
+        { name: 'Schema Design & Indexing', tag: 'Core' },
+        { name: 'Query Optimization', tag: 'Core' },
+        { name: 'Scheduled Jobs', tag: 'Core' },
       ],
     },
     frontend: {
-      title: 'Frontend Familiarity',
-      description: 'Client-side technologies for collaborating with frontend teams.',
+      title: 'Frontend & UI Engineering',
+      description: 'Client-side application frameworks and modern styling systems.',
       skills: [
-        { name: 'Angular', tag: 'Practiced' },
-        { name: 'TypeScript', tag: 'Practiced' },
+        { name: 'Angular', tag: 'Core' },
+        { name: 'TypeScript', tag: 'Core' },
+        { name: 'HTML5 / CSS3', tag: 'Core' },
+        { name: 'Tailwind CSS', tag: 'Practiced' },
+      ],
+    },
+    productionSupport: {
+      title: 'Production Support & Observability',
+      description: 'Incident resolution, diagnostics, and high-uptime operational discipline.',
+      skills: [
+        { name: 'L3 Production Support', tag: 'Core' },
+        { name: 'Root Cause Analysis (RCA)', tag: 'Core' },
+        { name: 'Incident Triage & SLA', tag: 'Core' },
+        { name: 'JVM Profiling / Heap Analysis', tag: 'Core' },
+        { name: 'Application Monitoring', tag: 'Core' },
+      ],
+    },
+    toolsAndDevOps: {
+      title: 'Build, DevOps & Tools',
+      description: 'Daily developer environment, tooling, and version control.',
+      skills: [
+        { name: 'Git (GitHub, GitLab)', tag: 'Tool' },
+        { name: 'Maven', tag: 'Tool' },
+        { name: 'Postman', tag: 'Tool' },
+        { name: 'Cursor / AI-Assisted Dev', tag: 'Tool' },
+        { name: 'IntelliJ IDEA', tag: 'Tool' },
       ],
     },
     engineeringPractices: {
       title: 'Engineering Practices',
-      description: 'Methodologies ensuring high reliability and maintainability.',
+      description: 'Disciplined methodologies ensuring maintainability and scalability.',
       skills: [
-        { name: 'Production debugging', tag: 'Core' },
-        { name: 'Root cause analysis', tag: 'Core' },
-        { name: 'API performance optimization', tag: 'Core' },
-        { name: 'Data synchronization', tag: 'Core' },
-        { name: 'Troubleshooting and maintenance', tag: 'Core' },
-        { name: 'Data consistency validation', tag: 'Core' },
+        { name: 'System Design & Architecture', tag: 'Architecture' },
+        { name: 'Clean Code Principles', tag: 'Architecture' },
+        { name: 'Design Patterns', tag: 'Architecture' },
+        { name: 'ITIL Incident / Problem / Change', tag: 'Core' },
+        { name: 'Agile / Scrum', tag: 'Core' },
+        { name: 'Java Streams & Functional API', tag: 'Core' },
       ],
     },
   },
@@ -233,156 +243,185 @@ export const portfolioConfig: PortfolioConfig = {
       company: 'Profit.co',
       role: 'Software Engineer',
       location: 'Chennai, India',
-      // Editable employment duration (e.g., '2021 – Present' or exact dates)
-      period: '3+ Years (Current)',
+      period: 'Jul 2022 – Present',
       current: true,
       overview:
-        'Developing and maintaining enterprise backend services for the Profit.co OKR management platform, focusing on business logic reliability, data synchronization, search indexing, and production stability.',
+        'Takes end-to-end ownership of backend modules and full-stack features for an enterprise OKR SaaS platform serving 500–1000 organisations globally. Key responsibilities include microservices architecture, schema design, Elasticsearch tuning, API performance optimisation, and L3 production incident resolution.',
       responsibilities: [
         {
-          category: 'Core OKR Platform Backend',
+          category: 'API Performance & Search Optimization',
           items: [
-            'Engineered and maintained backend functionality supporting objectives, key results, check-in cycles, alignment hierarchies, and executive reporting workflows.',
-            'Implemented and maintained robust REST API workflows handling complex validations and multi-entity relationship management.',
+            'Reduced API response times by ~63% (800ms → 300ms) through systematic profiling, query optimisation, and database indexing across 500–1000 enterprise organisations.',
+            'Integrated and optimised Elasticsearch for advanced search and analytics, reducing search query response time by ~25% through targeted indexing and query restructuring.',
+            'Developed MAT (Memory Analyser Tool) — an internal JVM heap profiler for identifying memory leaks in production, improving platform observability and proactive stability.',
           ],
         },
         {
-          category: 'Data Synchronization & Search',
+          category: 'Core OKR & Enterprise Workflows',
           items: [
-            'Worked extensively with Elasticsearch queries, index mapping, and document consistency alongside relational data stores.',
-            'Investigated and resolved complex data synchronization challenges between user check-ins, roll-up calculations, and search indices.',
+            'Designed and implemented OKR check-in and alignment flows, multi-level approval workflows, and multi-timezone support for globally distributed teams.',
+            'Developed planned value generation, YTD / QTD calculation logic, and Bowler chart backend — aggregating historical and projected KPI data for executive performance reviews.',
+            'Built email summary and share feature delivering scheduled OKR digests to 5,000+ users, and real-time notifications for updates, approvals, and reminders via Pub/Sub.',
+            'Built and maintained a daily Pub/Sub-triggered scheduled job to recalculate planned values and velocity metrics across all active organisations, ensuring KPI accuracy at scale.',
           ],
         },
         {
-          category: 'Production Support & Performance',
+          category: 'L3 Production Support & Team Leadership',
           items: [
-            'Investigated and resolved critical production issues through systematic log inspection, environment reproduction, and root-cause analysis.',
-            'Identified API latency bottlenecks and optimized data retrieval paths to eliminate redundant querying and reduce response times.',
-            'Supported ongoing releases, hotfixes, regression checks, and production verification procedures.',
+            'Provided L3 production support across 500–1000 organisations — owning end-to-end incident triage, root cause analysis, and permanent fixes following ITIL processes.',
+            'Eliminated recurring production incidents by implementing rigorous RCA and permanent code/schema fixes, reducing escalation rates and improving platform uptime.',
+            'Collaborated closely with Product, QA, and Frontend (Angular / TypeScript) teams in Agile sprints; leveraged AI-assisted tooling (Cursor, GitHub Copilot) to accelerate delivery.',
           ],
         },
       ],
       technicalFocus: [
-        'Java',
+        'Java 17',
         'Spring Boot',
-        'REST APIs',
+        'Microservices',
         'Elasticsearch',
-        'SQL',
-        'Maven',
-        'Git',
-        'Data Consistency',
-        'Performance Tuning',
+        'PostgreSQL / MySQL',
+        'Angular',
+        'TypeScript',
+        'Pub/Sub',
+        'JVM Profiling',
+        'ITIL / RCA',
       ],
     },
   ],
 
   caseStudies: [
     {
-      id: 'case-study-okr-backend',
-      title: 'OKR Management Backend Architecture',
-      summary:
-        'Backend functionality supporting objectives, key results, check-ins, reporting, and alignment workflows within an OKR management platform.',
-      context:
-        'Professional work at Profit.co supporting organizational goal management across complex team hierarchies and alignment trees.',
-      challenge:
-        'Managing intricate objective hierarchies where changes to child key results must accurately update parent progress without compromising transaction boundaries, concurrency safety, or API responsiveness.',
-      approach: [
-        'Structured modular service layers separating business calculation rules from persistence logic.',
-        'Implemented strict request validation and error-handling semantics across all REST endpoints.',
-        'Modeled domain relationships to ensure alignment updates propagate reliably across teams.',
-        'Validated data persistence flows with unit and regression tests prior to deployment.',
-      ],
-      engineeringThemes: [
-        'Business Logic',
-        'API Reliability',
-        'Data Integrity',
-        'Maintainable Backend Workflows',
-      ],
-      outcome:
-        'Delivered dependable backend workflows supporting multi-tier corporate OKR cycles with verified consistency and minimal regression risk.',
-      technologies: ['Java', 'REST APIs', 'Elasticsearch', 'SQL'],
-      featured: true,
-      visibility: 'public',
-    },
-    {
-      id: 'case-study-data-sync',
-      title: 'Check-in & Data Synchronization',
-      summary:
-        'Investigating and improving check-in processing, parent-child key-result propagation, plan synchronization, and consistency across application data sources.',
-      context:
-        'Addressing discrepancies between asynchronous check-in events, computed key-result milestones, and target data sources.',
-      challenge:
-        'When users submitted high-frequency check-in updates, intermittent race conditions and out-of-order execution could lead to desynchronization between primary database records and search indexes.',
-      approach: [
-        'Traced execution lifecycles from API entry through transactional boundaries and indexing events.',
-        'Added consistency validation checks to verify that parent progress accurately reflects aggregated child states before committing state updates.',
-        'Addressed edge-case update paths during concurrent check-in submissions.',
-        'Executed end-to-end regression testing to verify that state transitions remained strictly deterministic.',
-      ],
-      engineeringThemes: [
-        'Edge-Case Handling',
-        'Data Consistency Validation',
-        'Workflow Correctness',
-        'Safe Regression Testing',
-      ],
-      outcome:
-        'Eliminated data skew across check-in workflows, ensuring users and managers see matching progress figures across all views.',
-      technologies: ['Java', 'Backend APIs', 'Elasticsearch', 'Relational DB'],
-      featured: true,
-      visibility: 'public',
-    },
-    {
       id: 'case-study-api-optimization',
-      title: 'API Performance Optimization',
+      title: 'Enterprise API Latency Reduction (800ms → 300ms)',
       summary:
-        'Investigating slow backend APIs, identifying unnecessary database or Elasticsearch operations, improving data retrieval patterns, and validating performance changes.',
+        'Systematic profiling, query optimization, and database indexing reducing endpoint response times by ~63% across 500–1000 enterprise organizations.',
       context:
-        'Resolving latency spikes in frequently accessed dashboard and reporting endpoints under heavy query loads.',
+        'Production backend optimization on the Profit.co SaaS platform serving high-concurrency corporate tenants.',
       challenge:
-        'Certain reporting and overview endpoints experienced latency deterioration due to redundant nested queries, excessive payload serialization, and unindexed filter combinations.',
+        'Core reporting and dashboard endpoints experienced degraded response times (800ms+) under heavy concurrent access due to unindexed joins, redundant N+1 entity hydration, and unoptimized relational queries.',
       approach: [
-        'Profiled request execution paths to quantify time spent in database queries versus application processing.',
-        'Identified N+1 query patterns and replaced multiple iterative lookups with batched retrieval strategies.',
-        'Restructured pagination and selective field projections to minimize payload transfer overhead.',
-        'Conducted controlled pre- and post-optimization latency measurements to verify improvements before production rollout.',
+        'Profiled production execution paths using APM tools to isolate exact execution bottlenecks between relational queries, serialization, and application logic.',
+        'Redesigned schema indexing strategies and eliminated redundant nested table joins in PostgreSQL/MySQL.',
+        'Refactored ORM mappings to use selective projections and batched fetch joins instead of full entity graph traversal.',
+        'Conducted pre- and post-deployment benchmarks across production staging environments to validate latency under concurrent loads.',
       ],
       engineeringThemes: [
-        'Query Efficiency',
-        'Pagination & Filtering',
-        'Bottleneck Identification',
-        'Measurement-Driven Optimization',
+        'Performance Profiling',
+        'Query Optimization',
+        'Database Indexing',
+        'Latency Reduction',
       ],
       outcome:
-        'Substantially reduced endpoint response times and eliminated unnecessary database round-trips without altering API contracts.',
-      technologies: ['Java', 'REST APIs', 'Elasticsearch', 'Performance Analysis'],
+        'Reduced API response times by ~63% (from 800ms down to 300ms) with zero breaking contract changes, significantly improving responsiveness for 500–1000 enterprise organizations.',
+      technologies: ['Java 17', 'Spring Boot', 'SQL', 'PostgreSQL', 'APM Profiling'],
       featured: true,
       visibility: 'public',
     },
     {
       id: 'case-study-elasticsearch-investigation',
-      title: 'Elasticsearch Query & Data Investigation',
+      title: 'Elasticsearch Search & Analytics Tuning (~25% Latency Cut)',
       summary:
-        'Investigating complex filters, query behavior, index-related problems, data discrepancies, and production search issues.',
+        'Targeted indexing, analyzer standardization, and Query DSL restructuring reducing search query latency by ~25% for complex multi-filter enterprise searches.',
       context:
-        'Maintaining high search accuracy and responsiveness across thousands of objectives, key results, and user entities.',
+        'Enterprise search infrastructure across thousands of objectives, key results, user entities, and organization hierarchies.',
       challenge:
-        'Complex multi-filter queries yielded occasional false negatives or unexpected scoring behavior due to subtle differences between text analyzers, filter contexts, and stale document states.',
+        'Multi-tenant search requests involving nested alignment filters, dynamic status queries, and text scoring suffered from slow response times and occasional discrepancies with primary database states.',
       approach: [
-        'Analyzed query explain plans and Query DSL structures to isolate filter vs. scoring context mismatches.',
-        'Identified mapping inconsistencies and standardized tokenization rules across search fields.',
-        'Established diagnostic procedures to identify and resolve document desynchronization between primary storage and indices.',
-        'Built verified query templates that ensure consistent filtering across status, department, and time-range dimensions.',
+        'Audited existing Elasticsearch index mappings, tokenizers, and Query DSL construction patterns across all search endpoints.',
+        'Restructured query architecture to utilize fast filter contexts for deterministic criteria (tenantId, status, date) and isolated scoring only to text relevance fields.',
+        'Standardized document indexing pipelines to ensure atomic synchronization whenever updates occurred in relational stores.',
+        'Implemented custom routing keys and optimized sharding parameters to minimize cross-node search latency.',
       ],
       engineeringThemes: [
-        'Search Query Analysis',
-        'Data Validation',
-        'Troubleshooting',
-        'Efficient Retrieval',
+        'Elasticsearch Query DSL',
+        'Index Tuning',
+        'Search Latency',
+        'Data Consistency',
       ],
       outcome:
-        'Restored accurate, predictable search behavior across complex filter permutations and simplified ongoing index maintenance.',
-      technologies: ['Elasticsearch', 'Query DSL', 'Java', 'Search Indexing'],
+        'Reduced search query response times by ~25% and eliminated indexing lag, delivering instantaneous multi-filter search results across enterprise organizations.',
+      technologies: ['Elasticsearch', 'Query DSL', 'Java 17', 'Spring Boot', 'Relational DB'],
       featured: true,
+      visibility: 'public',
+    },
+    {
+      id: 'case-study-okr-backend',
+      title: 'OKR Alignment Engine, Bowler Charts & Calculation Workflows',
+      summary:
+        'End-to-end backend architecture supporting OKR check-ins, multi-level approvals, planned value generation, YTD/QTD metrics, and Bowler charts.',
+      context:
+        'Core business engine of Profit.co handling corporate goal alignment, executive KPI reporting, and global timezone scheduling.',
+      challenge:
+        'Calculating accurate progress rollups, historical KPI trajectories, and planned values across complex multi-tier team hierarchies with varying global time zones and approval chains.',
+      approach: [
+        'Designed modular domain service layers separating validation, calculation logic, and event dispatch.',
+        'Implemented complex business algorithms for planned value trajectories, YTD/QTD rollups, and executive Bowler charts.',
+        'Engineered multi-timezone scheduling logic ensuring reporting deadlines and check-in cycles execute accurately for distributed global workforces.',
+        'Integrated with Angular frontend components via strictly typed REST contracts.',
+      ],
+      engineeringThemes: [
+        'Domain Architecture',
+        'Complex Business Logic',
+        'Timezone Handling',
+        'KPI Analytics',
+      ],
+      outcome:
+        'Built and delivered 10+ core backend features used daily by executive leadership and cross-functional teams across hundreds of global enterprises.',
+      technologies: ['Java 17', 'Spring Boot', 'REST APIs', 'SQL', 'Angular'],
+      featured: true,
+      visibility: 'public',
+    },
+    {
+      id: 'case-study-pubsub-notifications',
+      title: 'Pub/Sub Async Notifications & Scheduled Recalculation Engine',
+      summary:
+        'Event-driven architecture using Pub/Sub async dispatch delivering email digests to 5,000+ users, real-time notifications, and daily automated metric recalculation.',
+      context:
+        'Asynchronous event processing and scheduled job pipelines for enterprise OKR updates, approvals, and reminders.',
+      challenge:
+        'Broadcasting check-in reminders and scheduled digests to 5,000+ users without blocking HTTP threads, while reliably running high-volume daily metric recalculation across all active organizations.',
+      approach: [
+        'Decoupled synchronous REST requests from heavy notification workflows using asynchronous Pub/Sub message queues.',
+        'Designed scheduled batch jobs that recalculate planned values and velocity metrics during low-activity windows with transactional safety.',
+        'Implemented idempotent message consumers with retry policies and dead-letter queues to prevent duplicate notifications.',
+        'Built dynamic digest generation compiling personalized OKR updates into email summaries.',
+      ],
+      engineeringThemes: [
+        'Event-Driven Architecture',
+        'Pub/Sub Messaging',
+        'Scheduled Batch Jobs',
+        'High-Volume Dispatch',
+      ],
+      outcome:
+        'Delivered a resilient notification pipeline reaching 5,000+ users with zero degradation to web API latency, ensuring 100% KPI metric consistency across all organizations.',
+      technologies: ['Java 17', 'Pub/Sub', 'Spring Boot', 'Scheduled Jobs', 'PostgreSQL'],
+      featured: true,
+      visibility: 'public',
+    },
+    {
+      id: 'case-study-mat-profiler',
+      title: 'MAT (Memory Analyser Tool) — JVM Heap Profiler',
+      summary:
+        'Internal JVM heap memory analyzer built on personal initiative to identify and eliminate memory leaks proactively in production.',
+      context:
+        'Production reliability initiative to safeguard enterprise tenant uptime and optimize JVM resource consumption.',
+      challenge:
+        'Occasional memory pressure under prolonged high-traffic periods required proactive memory profiling without taking production services offline.',
+      approach: [
+        'Created MAT (Memory Analyser Tool) to capture and inspect JVM heap allocation patterns and live object references.',
+        'Analyzed heap dump snapshots to identify lingering collections, unclosed streams, and retained object graphs.',
+        'Collaborated with engineering teams to refactor memory-intensive routines and introduce proper lifecycle management.',
+      ],
+      engineeringThemes: [
+        'JVM Heap Profiling',
+        'Memory Leak Detection',
+        'Production Stability',
+        'Observability Tooling',
+      ],
+      outcome:
+        'Empowered engineering with automated heap analysis, eliminated recurring out-of-memory risks, and established proactive stability management across production nodes.',
+      technologies: ['Java', 'JVM Profiling', 'Heap Dump Analysis', 'Production Diagnostics'],
+      featured: false,
       visibility: 'public',
     },
   ],
@@ -391,66 +430,65 @@ export const portfolioConfig: PortfolioConfig = {
     {
       title: 'Performance First',
       description:
-        'Measure bottlenecks, identify expensive operations, and validate optimizations rather than guessing.',
+        'Measure bottlenecks, identify expensive operations, and validate optimizations rather than guessing (~63% API latency reduction achieved in production).',
       icon: 'Zap',
       details: [
-        'Profile execution before changing code',
-        'Eliminate redundant database round-trips',
-        'Validate gains with before-and-after benchmarks',
+        'APM profiling before touching code (800ms → 300ms)',
+        'Targeted database indexing and query restructuring',
+        'Elasticsearch Query DSL tuning for 25% faster search',
       ],
     },
     {
       title: 'Data Consistency',
       description:
-        'Verify data across API, storage, and application layers, especially when related records must remain synchronized.',
+        'Verify data across API, storage, and application layers, especially when related records and search indices must remain synchronized.',
       icon: 'Database',
       details: [
-        'Audit state transitions across parent-child models',
-        'Ensure dual-write and index synchronization stay reliable',
-        'Protect against partial update edge cases',
+        'Deterministic KPI and YTD/QTD calculation engines',
+        'Atomic sync between relational storage and Elasticsearch',
+        'Pub/Sub-triggered scheduled jobs for KPI accuracy',
       ],
     },
     {
       title: 'Production Reliability',
       description:
-        'Investigate root causes, implement safe fixes, and verify that changes do not introduce regressions.',
+        'Investigate root causes, implement safe fixes, and verify that changes do not introduce regressions (L3 triage across 500–1000 organizations).',
       icon: 'ShieldCheck',
       details: [
-        'Reproduce issues locally before writing code',
-        'Target root causes rather than patching symptoms',
-        'Run targeted regression checks on impacted paths',
+        'End-to-end incident triage following ITIL workflows',
+        'Root cause analysis (RCA) eliminating repeat incidents',
+        'JVM memory profiling (MAT) for proactive heap health',
       ],
     },
     {
-      title: 'Continuous Learning',
+      title: 'Continuous Learning & Full-Stack',
       description:
-        'Strengthen backend engineering fundamentals through practical implementation and continued study.',
+        'Strengthen backend engineering fundamentals while staying adept with modern full-stack tools (Angular, TypeScript, AI tooling).',
       icon: 'BookOpen',
       details: [
-        'Deepen understanding of Spring Boot internals',
-        'Study distributed systems and microservice tradeoffs',
-        'Maintain clean, readable code and clear documentation',
+        'Java 17 and Spring Boot microservice design',
+        'Full-stack collaboration with Angular & TypeScript',
+        'Accelerating velocity with Cursor & GitHub Copilot',
       ],
     },
   ],
 
   resume: {
-    // Configurable resume availability
-    enabled: false, // Set to true once public/resume.pdf is added
+    enabled: true, // Resume PDF is verified and placed in public/resume.pdf
     filePath: './resume.pdf',
     fileName: 'Kannan_Ganesan_Resume.pdf',
-    note: 'Resume PDF is available upon direct request or download once configured in public/resume.pdf.',
+    note: 'Official resume of Kannan Ganesan — Software Engineer at Profit.co.',
   },
 
   contact: {
     email: 'kannangk4343@gmail.com',
+    phone: '9943435005',
     githubUrl: 'https://github.com/kannan-g-dev',
-    // Set to your actual LinkedIn profile URL when ready
-    linkedinUrl: '', // Safe empty placeholder - handled cleanly in UI
+    linkedinUrl: 'https://www.linkedin.com/in/kannan-ganesan-570413172/',
     location: 'Chennai, India',
-    responseExpectation: 'I typically respond to engineering inquiries within 24-48 hours.',
+    responseExpectation: 'I typically respond to engineering inquiries within 24 hours.',
     formService: {
-      configured: false, // Static frontend: contact form generates clean email drafts
+      configured: false,
       endpointUrl: undefined,
     },
   },
@@ -458,17 +496,14 @@ export const portfolioConfig: PortfolioConfig = {
   seo: {
     title: 'Kannan Ganesan | Software Engineer | Java Backend Developer',
     description:
-      'Portfolio of Kannan Ganesan — Software Engineer with 3+ years of experience specializing in Java, Spring Boot, REST APIs, Elasticsearch, and reliable backend systems.',
+      'Portfolio of Kannan Ganesan — Software Engineer with 4+ years of experience specializing in Java 17, Spring Boot, Elasticsearch, Angular, and high-performance backend systems.',
     ogTitle: 'Kannan Ganesan — Software Engineer & Java Backend Developer',
     ogDescription:
-      'Backend Software Engineer specializing in Java, Spring Boot, REST APIs, Elasticsearch, and data consistency.',
-    siteUrl: '', // Add deployed URL here
+      'Software Engineer with 4+ years of experience in Java 17, Spring Boot, Elasticsearch, Pub/Sub, and Angular.',
+    siteUrl: 'https://kannan-g-dev.github.io/portfolio/',
   },
 };
 
-/**
- * Helpers to check if links are real and safe to render
- */
 export function isValidUrl(url?: string): boolean {
   if (!url || typeof url !== 'string') return false;
   const trimmed = url.trim();
