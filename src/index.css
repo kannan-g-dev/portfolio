@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* Prevents sticky navbar from obscuring section headings */
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Accessible focus indicators */
+  :focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 3px;
+  }
+}
+
+/* Subtle custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* Code and technical badge helper classes */
+.tech-badge {
+  @apply inline-flex items-center px-2.5 py-1 text-xs font-mono font-medium rounded border transition-colors;
+}
+
+.dark .tech-badge {
+  @apply bg-dark-surface/90 text-slate-300 border-white/10 hover:border-brand-blue/40 hover:text-white;
+}
+
+.tech-badge {
+  @apply bg-slate-100 text-slate-700 border-slate-200 hover:border-brand-blue/50 hover:text-slate-900;
+}
+
+/* Glass / Card surface classes */
+.card-surface {
+  @apply rounded-xl border transition-all duration-200;
+}
+
+.dark .card-surface {
+  @apply bg-dark-card/70 border-white/[0.08] hover:border-white/[0.16] hover:bg-dark-cardHover/80 shadow-lg shadow-black/20;
+}
+
+.card-surface {
+  @apply bg-white border-slate-200 hover:border-slate-300 hover:shadow-md shadow-sm;
+}

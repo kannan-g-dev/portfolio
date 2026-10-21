@@ -1,12 +1,71 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
-</head>
-<body>
-  <h1>Hello, World!</h1>
-</body>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kannan Ganesan | Software Engineer | Java Backend Developer</title>
+    <meta
+      name="description"
+      content="Portfolio of Kannan Ganesan — Software Engineer with 3+ years of experience specializing in Java, Spring Boot, REST APIs, Elasticsearch, and reliable backend systems."
+    />
+    <meta name="theme-color" content="#090d16" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Kannan Ganesan | Software Engineer | Java Backend Developer" />
+    <meta
+      property="og:description"
+      content="Software Engineer focused on backend development, REST APIs, Elasticsearch, data consistency, and performance optimization."
+    />
+    <meta property="og:site_name" content="Kannan Ganesan Portfolio" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Kannan Ganesan | Software Engineer | Java Backend Developer" />
+    <meta
+      name="twitter:description"
+      content="Software Engineer focused on backend development, REST APIs, Elasticsearch, data consistency, and performance optimization."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts: Inter & JetBrains Mono for a clean, technical look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Theme initialization script to prevent flash -->
+    <script>
+      (function() {
+        try {
+          const storedTheme = localStorage.getItem('kg_theme');
+          // Default to dark mode for first-time visitors as specified
+          if (storedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+          } else {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (_) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text antialiased selection:bg-brand-blue/20 selection:text-brand-blue">
+    <!-- Skip to main content landmark for accessibility -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-brand-blue focus:text-white focus:rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue shadow-lg font-medium"
+    >
+      Skip to main content
+    </a>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
