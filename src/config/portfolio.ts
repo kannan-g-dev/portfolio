@@ -437,7 +437,7 @@ export const portfolioConfig: PortfolioConfig = {
   resume: {
     // Configurable resume availability
     enabled: false, // Set to true once public/resume.pdf is added
-    filePath: '/resume.pdf',
+    filePath: './resume.pdf',
     fileName: 'Kannan_Ganesan_Resume.pdf',
     note: 'Resume PDF is available upon direct request or download once configured in public/resume.pdf.',
   },

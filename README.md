@@ -325,19 +325,34 @@ Additional static meta tags and preconnect hints are maintained in `index.html`.
 
 Because this is a pure static single-page application, it can be hosted on any static hosting provider.
 
-### GitHub Pages
-1. In `vite.config.ts`, if hosting on `<username>.github.io/<repo>/`, set `base: '/portfolio/'`:
-   ```typescript
-   export default defineConfig({
-     base: '/portfolio/', // Or '/' for custom domains / apex pages
-     plugins: [react()],
-   });
-   ```
-2. Build the project:
+### GitHub Pages Deployment
+
+There are two easy methods to deploy this Vite/React portfolio to GitHub Pages:
+
+#### Method 1: Automated GitHub Actions (Recommended)
+An automated workflow is configured in `.github/workflows/deploy.yml`.
+1. Push your latest changes to GitHub:
    ```bash
-   npm run build
+   git add .
+   git commit -m "Configure GitHub Pages deployment"
+   git push origin main
    ```
-3. Push the `dist` folder to your `gh-pages` branch or configure GitHub Actions to deploy from the `main` branch.
+2. Go to your GitHub repository on github.com.
+3. Click **Settings** → **Pages** (under Code and automation in the left sidebar).
+4. Under **Build and deployment** → **Source**, change from *Deploy from a branch* to **GitHub Actions**.
+5. GitHub will now automatically run the build and deploy your portfolio to `https://<username>.github.io/<repo>/` on every push!
+
+#### Method 2: One-Command Deploy via `gh-pages`
+If you prefer deploying compiled assets directly to a `gh-pages` branch:
+1. Run the deploy script in your terminal:
+   ```bash
+   npm run deploy
+   ```
+   *(This automatically runs `npm run build` and pushes the `dist/` bundle to a `gh-pages` branch).*
+2. In your repository **Settings** → **Pages**:
+   - **Source:** *Deploy from a branch*
+   - **Branch:** Select `gh-pages` and folder `/ (root)`
+   - Click **Save**.
 
 ### Vercel / Netlify / Cloudflare Pages
 - **Build Command:** `npm run build`
